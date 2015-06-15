@@ -6,7 +6,7 @@
 //
 
 #import "GEOSwiftCallback.h"
-#import <geos/geos_c.h>
+#import "geos_c.h"
 
 #ifdef LOG_VERBOSE
 #define HLogInfo(fmt, ...) DDLogInfo((@"--[GEOSwift INFO]-- %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

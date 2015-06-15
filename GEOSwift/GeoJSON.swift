@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import geos
 
 public extension Geometry {
 /** 

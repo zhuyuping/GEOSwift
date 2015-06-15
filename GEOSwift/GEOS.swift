@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import geos
 
 var GEOS_HANDLE: COpaquePointer = {
     return initGEOSWrapper_r();

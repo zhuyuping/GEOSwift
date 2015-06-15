@@ -16,7 +16,11 @@ DESC
   s.social_media_url   = "http://twitter.com/andreacremaschi"
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/andreacremaschi/GEOSwift.git", :tag => "0.1" }
-  s.source_files = "GEOSwift"
-  s.dependency "geos", "~> 3.4.2"
+  s.source_files = "GEOSwift", "geos/include/geos_c.h"
+  s.vendored_framework = "geos/lib/*.dylib"
+  s.resources = "geos/lib/*.dylib"
+  s.xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
+  s.public_header_files = "geos/include/geos_c.h"
+  #s.dependency "geos", "~> 3.4.2"
 
 end

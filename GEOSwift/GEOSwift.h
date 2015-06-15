@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "geos_c.h"
 #import "GEOSwiftCallback.h"
 
 //! Project version number for GEOSwift.
