@@ -20,4 +20,4 @@ SPEC CHECKSUMS:
   geos: 836ecf4b0d1baf6c3dda536126aaee6fdde0ebee
   MapboxGL: ece2464d798a64bbb546b58f2b715288699ca675
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0.beta.3

@@ -19,9 +19,9 @@ DESC
   
   s.subspec 'Core' do |cs|
     cs.source_files = "GEOSwift", "geos/include/geos_c.h"
-    cs.vendored_framework = "geos/lib/*.dylib"
-    cs.resources = "geos/lib/*.dylib"
-    cs.xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
+    cs.vendored_libraries = "geos/lib/*.dylib"
+    #cs.resources = "geos/lib/*.dylib"
+    #cs.xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
     cs.public_header_files = "geos/include/geos_c.h"
     #cs.dependency "geos", "~> 3.4.2"
   end
