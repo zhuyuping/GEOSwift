@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GEOSwift"
-  s.version      = "0.1"
+  s.version      = "0.2"
   s.summary      = "The Swift Geographic Engine."
 
   s.description  = <<-DESC
@@ -14,13 +14,24 @@ DESC
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Andrea Cremaschi" => "andreacremaschi@libero.it" }
   s.social_media_url   = "http://twitter.com/andreacremaschi"
-  s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/andreacremaschi/GEOSwift.git", :tag => "0.1" }
-  s.source_files = "GEOSwift", "geos/include/geos_c.h"
-  s.vendored_framework = "geos/lib/*.dylib"
-  s.resources = "geos/lib/*.dylib"
-  s.xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
-  s.public_header_files = "geos/include/geos_c.h"
-  #s.dependency "geos", "~> 3.4.2"
+  s.platform     = :ios, "8.0"
+  s.source       = { :git => "https://github.com/andreacremaschi/GEOSwift.git", :tag => "0.2" }
+  
+  s.subspec 'Core' do |cs|
+    cs.source_files = "GEOSwift", "geos/include/geos_c.h"
+    cs.vendored_framework = "geos/lib/*.dylib"
+    cs.resources = "geos/lib/*.dylib"
+    cs.xcconfig = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
+    cs.public_header_files = "geos/include/geos_c.h"
+    #cs.dependency "geos", "~> 3.4.2"
+  end
+
+  s.subspec 'MapboxGL' do |cs|
+    cs.source_files = "GEOSwift/MapboxGL"
+    cs.dependency "GEOSwift/Core"
+    cs.dependency "MapboxGL"
+  end
+
+  s.default_subspec = 'Core'
 
 end
