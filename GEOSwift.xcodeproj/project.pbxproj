@@ -35,6 +35,7 @@
 		CD767E2F1B95DED50048B9A8 /* libgeos_c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */; };
 		CD767E301B95DED50048B9A8 /* libgeos-3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */; };
 		CDB7EC051B287CE70055835C /* MapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB7EC041B287CE70055835C /* MapKitTests.swift */; };
+		CDCA5D361BB1660700BEBA9B /* MapboxGLAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */; settings = {ASSET_TAGS = (); }; };
 		CDBC6F2D1B2EE1B000E0FE8F /* libgeos_c.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CDBC6F2E1B2EE1B000E0FE8F /* libgeos-3.4.2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		CD25D73D1B27364E008B3FB3 /* GEOSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GEOSwift.h; path = GEOSwift/GEOSwift.h; sourceTree = SOURCE_ROOT; };
 		CD38328B1B2EF8E200178DD2 /* geos_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = geos_c.h; path = ../geos/include/geos_c.h; sourceTree = "<group>"; };
 		CD669B001B10C0930091750F /* GEOSPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GEOSPlayground.playground; sourceTree = "<group>"; };
+		CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxGLAnnotations.swift; sourceTree = "<group>"; };
 		CDA09FFB1B3968B00092C6C6 /* feature.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = feature.geojson; sourceTree = "<group>"; };
 		CDA09FFC1B3968B00092C6C6 /* linestring.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linestring.geojson; sourceTree = "<group>"; };
 		CDA09FFD1B3968B00092C6C6 /* multilinestring.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multilinestring.geojson; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				CD25D7251B2732FE008B3FB3 /* GeoJSON.swift */,
 				CD25D72C1B2732FE008B3FB3 /* MapKit.swift */,
 				CD25D72D1B2732FE008B3FB3 /* QuickLook.swift */,
+				CD81DB6B1B91C13D0085F772 /* MapboxGL */,
 			);
 			name = Source;
 			path = GEOSwift;
@@ -244,6 +247,23 @@
 			isa = PBXGroup;
 			children = (
 				CD23A70E1B95BE200062E99C /* Pods.framework */,
+				CD20F1DA1B282CC40045D8FD /* Pods.framework */,
+				887537486B17EE0B1DC6F3A3 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD81DB6B1B91C13D0085F772 /* MapboxGL */ = {
+			isa = PBXGroup;
+			children = (
+				CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */,
+			);
+			path = MapboxGL;
+			sourceTree = "<group>";
+		};
+		F249FE82CF1F95FBFCF62C71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
 				CD20F1DA1B282CC40045D8FD /* Pods.framework */,
 				887537486B17EE0B1DC6F3A3 /* Pods.framework */,
 			);
@@ -316,7 +336,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = andreacremaschi;
 				TargetAttributes = {
 					CD2299831B10B506002C19AE = {
@@ -462,6 +482,7 @@
 				CD25D7371B2732FE008B3FB3 /* QuickLook.swift in Sources */,
 				CD25D7341B2732FE008B3FB3 /* GEOSwiftCallback.m in Sources */,
 				CD25D7301B2732FE008B3FB3 /* GEOS.swift in Sources */,
+				CDCA5D361BB1660700BEBA9B /* MapboxGLAnnotations.swift in Sources */,
 				CD20F1E11B2844210045D8FD /* Geometries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +533,7 @@
 				INFOPLIST_FILE = GEOSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.andreacremaschi.$(PRODUCT_NAME:rfc1034identifier)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/geos/lib",
@@ -546,6 +568,7 @@
 				INFOPLIST_FILE = GEOSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.andreacremaschi.$(PRODUCT_NAME:rfc1034identifier)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/geos/lib",
@@ -573,6 +596,7 @@
 				);
 				INFOPLIST_FILE = GEOSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.andreacremaschi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -588,6 +612,7 @@
 				);
 				INFOPLIST_FILE = GEOSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.andreacremaschi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -613,6 +638,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

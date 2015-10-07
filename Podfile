@@ -6,4 +6,4 @@ use_frameworks!
 link_with 'GEOSwift', 'GEOSwiftTests'
 
 pod 'CocoaLumberjack'
-pod 'MapboxGL'
+pod 'Mapbox-iOS-SDK'

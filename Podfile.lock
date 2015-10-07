@@ -8,13 +8,15 @@ PODS:
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
   - MapboxGL (0.5.99)
+  - Mapbox-iOS-SDK (2.0.0)
 
 DEPENDENCIES:
   - CocoaLumberjack
-  - MapboxGL
+  - geos
+  - Mapbox-iOS-SDK
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
-  MapboxGL: ece2464d798a64bbb546b58f2b715288699ca675
+  Mapbox-iOS-SDK: 07b84769693242f0e20eeed03d38515beca93c5b
 
-COCOAPODS: 0.39.0.beta.3
+COCOAPODS: 0.39.0.beta.4
