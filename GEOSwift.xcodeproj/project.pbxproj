@@ -17,7 +17,6 @@
 		CD23AF1C1BC5463B0059534A /* libgeos_c.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CD23AF1D1BC5463B0059534A /* libgeos-3.4.2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CD23AF1E1BC5463F0059534A /* libgeos_c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */; };
-		CD23AF1F1BC5463F0059534A /* libgeos-3.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */; };
 		CD25D72F1B2732FE008B3FB3 /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D7251B2732FE008B3FB3 /* GeoJSON.swift */; };
 		CD25D7301B2732FE008B3FB3 /* GEOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D7261B2732FE008B3FB3 /* GEOS.swift */; };
 		CD25D7331B2732FE008B3FB3 /* GEOSwiftCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = CD25D7291B2732FE008B3FB3 /* GEOSwiftCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,7 +127,6 @@
 			files = (
 				CD9381B21BC5528900A8D32B /* Pods.framework in Frameworks */,
 				CD23AF1E1BC5463F0059534A /* libgeos_c.1.dylib in Frameworks */,
-				CD23AF1F1BC5463F0059534A /* libgeos-3.4.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
