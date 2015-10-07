@@ -5,6 +5,5 @@ use_frameworks!
 
 link_with 'GEOSwift', 'GEOSwiftTests'
 
-pod 'geos'
 pod 'CocoaLumberjack'
 pod 'MapboxGL'

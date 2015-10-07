@@ -6,8 +6,7 @@ IOS_PLATFORM_DEVELOPER = ${XCODE_DEVELOPER}/Platforms/${IOS_PLATFORM}.platform/D
 IOS_SDK = ${IOS_PLATFORM_DEVELOPER}/SDKs/$(shell ls ${IOS_PLATFORM_DEVELOPER}/SDKs | sort -r | head -n1)
 
 all: lib/libgeos.dylib
-lib/libgeos.dylib: 
-	#build_arches
+lib/libgeos.dylib: build_arches
 	mkdir -p lib
 	mkdir -p include
 

@@ -7,17 +7,14 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
-  - geos (3.4.2)
   - MapboxGL (0.5.99)
 
 DEPENDENCIES:
   - CocoaLumberjack
-  - geos
   - MapboxGL
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
-  geos: 836ecf4b0d1baf6c3dda536126aaee6fdde0ebee
   MapboxGL: ece2464d798a64bbb546b58f2b715288699ca675
 
 COCOAPODS: 0.39.0.beta.3
