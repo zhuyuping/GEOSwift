@@ -13,7 +13,6 @@ class GEOSwiftTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -81,10 +80,10 @@ class GEOSwiftTests: XCTestCase {
         let bundle = NSBundle(forClass: GEOSwiftTests.self)
         if let geojsons = bundle.URLsForResourcesWithExtension("geojson", subdirectory: nil) {
             for geoJSONURL in geojsons {
-                if let geometries = try! Geometry.fromGeoJSON(geoJSONURL)  {
+                if let _ = try! Geometry.fromGeoJSON(geoJSONURL)  {
 //                    geometries[0].debugQuickLookObject()
                     XCTAssert(true, "GeoJSON correctly parsed")
-                    print("\(geoJSONURL.lastPathComponent): \(geometries)")
+//                    print("\(geoJSONURL.lastPathComponent): \(geometries)")
                 } else {
                     XCTAssert(false, "Can't extract geometry from GeoJSON: \(geoJSONURL.lastPathComponent)")
                 }
