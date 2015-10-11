@@ -154,7 +154,7 @@ public class LinearRing : LineString {
 }
 
 /**
-A GeometryCollection is a geometry that is a collection of 1 or more geometries.
+A `GeometryCollection` is a geometry that is a collection of 1 or more geometries.
 */
 public class GeometryCollection<T: Geometry> : Geometry {
     
@@ -199,7 +199,7 @@ public class GeometryCollection<T: Geometry> : Geometry {
 }
 
 /**
-A `MultiLineString` is a `GeometryCollection` of `LineStrings`.
+A `MultiLineString` is a `GeometryCollection` of `LineString`s.
 */
 public class MultiLineString<T: LineString> : GeometryCollection<LineString> {
     
@@ -236,7 +236,7 @@ public class MultiLineString<T: LineString> : GeometryCollection<LineString> {
 }
 
 /**
-A `MultiLineString` is a `GeometryCollection` of `Point`s.
+A `MultiPoint` is a `GeometryCollection` of `Point`s.
 */
 public class MultiPoint<T: Waypoint> : GeometryCollection<Waypoint> {
     public override class func geometryTypeId() -> Int32 {

@@ -7,16 +7,15 @@
 
 import Foundation
 
-typealias GEOSCallbackFunction = @convention(c) (UnsafeMutablePointer<Void>) -> Void
+typealias GEOSCallbackFunction = @convention(c) (UnsafeMutablePointer<CChar>) -> Void
 
 let swiftCallback : GEOSCallbackFunction = { args -> Void in
-    if let string = String.fromCString(unsafeBitCast(args, UnsafeMutablePointer<CChar>.self)) {
+    if let string = String.fromCString(args) {
         print("GEOSwift # " + string + ".")
     }
 }
 
 var GEOS_HANDLE: COpaquePointer = {
-//    return initGEOSWrapper_r();
     return initGEOS_r(unsafeBitCast(swiftCallback, GEOSMessageHandler.self),
         unsafeBitCast(swiftCallback, GEOSMessageHandler.self))
 }()

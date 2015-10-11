@@ -7,6 +7,7 @@
 
 import Foundation
 import XCTest
+@testable
 import GEOSwift
 
 class GEOSwiftTests: XCTestCase {
@@ -19,7 +20,17 @@ class GEOSwiftTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    
+    func testUnvalidWKT() {
+        let result: Bool
+        if let _ = Geometry.create("Unvalid geometry WKT") {
+            result = false
+        } else {
+            result = true
+        }
+        XCTAssert(result, "Can't create geometries from unvalid WKT")
+    }
+    
     func testCreatePointFromWKT() {
         var result = false
         if let point = Geometry.create("POINT(45 9)") as? Waypoint,
