@@ -17,7 +17,7 @@ lib/libgeos.dylib: build_arches
 	# Make fat libraries for all architectures
 	for file in build/armv7/lib/*.dylib; \
 		do name=`basename $$file .dylib`; \
-		${IOS_PLATFORM_DEVELOPER}/usr/bin/lipo -create \
+		lipo -create \
 			-arch armv7 build/armv7/lib/$$name.dylib \
 			-arch armv7s build/armv7s/lib/$$name.dylib \
 			-arch arm64 build/arm64/lib/$$name.dylib \
@@ -25,6 +25,8 @@ lib/libgeos.dylib: build_arches
 			-arch x86_64 build/x86_64/lib/$$name.dylib \
 			-output lib/$$name.dylib \
 		; \
+		install_name_tool -id @rpath/$$name.dylib lib/$$name.dylib; \
+		patch include/geos_c.h < patch-geoc_c.h.diff \
 		done;
 
 # Build separate architectures
@@ -42,8 +44,8 @@ INCLUDEDIR = ${PREFIX}/include
 
 CXX = ${XCODE_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 CC = ${XCODE_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
-CFLAGS = -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -arch ${ARCH} -I${INCLUDEDIR} -miphoneos-version-min=7.0
-CXXFLAGS = -stdlib=libc++ -std=c++11 -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -arch ${ARCH} -I${INCLUDEDIR} -miphoneos-version-min=7.0
+CFLAGS = -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -arch ${ARCH} -I${INCLUDEDIR} -miphoneos-version-min=7.0 -fembed-bitcode
+CXXFLAGS = -stdlib=libc++ -std=c++11 -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -arch ${ARCH} -I${INCLUDEDIR} -miphoneos-version-min=7.0 -fembed-bitcode
 LDFLAGS = -stdlib=libc++ -isysroot ${IOS_SDK} -L${LIBDIR} -L${IOS_SDK}/usr/lib -arch ${ARCH} -miphoneos-version-min=7.0
 
 arch: ${LIBDIR}/libgeos.dylib
@@ -55,7 +57,9 @@ ${LIBDIR}/libgeos.dylib: ${CURDIR}/geos
 	CC=${CC} \
 	CFLAGS="${CFLAGS}" \
 	CXXFLAGS="${CXXFLAGS}" \
-	LDFLAGS="${LDFLAGS}" ./configure --host=${HOST} --prefix=${PREFIX} --disable-static && make clean install 
+	LDFLAGS="${LDFLAGS}" ./configure --host=${HOST} --prefix=${PREFIX} --disable-static && patch libtool < ../patch-libtool.diff && make clean install 		
+	# patches libtool generated file before making, since it contains an error: it should add the "bind_at_load" flag to the linker only on OSX 10.0 -> 10.3,
+	# but it would apply it even on OSX > 10.9 (and it is incompatible with -fembed-bitcode)
 
 ${CURDIR}/geos:
 	svn export --non-interactive --trust-server-cert --force https://svn.osgeo.org/geos/tags/3.4.2 geos

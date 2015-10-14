@@ -13,9 +13,6 @@
 		CD20F1E11B2844210045D8FD /* Geometries.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD20F1E01B2844210045D8FD /* Geometries.swift */; };
 		CD22998F1B10B506002C19AE /* GEOSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2299841B10B506002C19AE /* GEOSwift.framework */; };
 		CD2299981B10B506002C19AE /* GEOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2299971B10B506002C19AE /* GEOSTests.swift */; };
-		CD23AF1C1BC5463B0059534A /* libgeos_c.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CD23AF1D1BC5463B0059534A /* libgeos-3.4.2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CD23AF1E1BC5463F0059534A /* libgeos_c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */; };
 		CD25D72F1B2732FE008B3FB3 /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D7251B2732FE008B3FB3 /* GeoJSON.swift */; };
 		CD25D7301B2732FE008B3FB3 /* GEOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D7261B2732FE008B3FB3 /* GEOS.swift */; };
 		CD25D7361B2732FE008B3FB3 /* MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D72C1B2732FE008B3FB3 /* MapKit.swift */; };
@@ -31,6 +28,10 @@
 		CD2DE3A41B39750200E7BCD4 /* linestring.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFC1B3968B00092C6C6 /* linestring.geojson */; };
 		CD2DE3A51B39750200E7BCD4 /* multilinestring.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFD1B3968B00092C6C6 /* multilinestring.geojson */; };
 		CD2DE3A61B39750200E7BCD4 /* point.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFE1B3968B00092C6C6 /* point.geojson */; };
+		CD586A1A1BCD383D00937CC1 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD586A181BCD383D00937CC1 /* libgeos_c.dylib */; settings = {ASSET_TAGS = (); }; };
+		CD586A1B1BCD383D00937CC1 /* libgeos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD586A191BCD383D00937CC1 /* libgeos.dylib */; settings = {ASSET_TAGS = (); }; };
+		CD586A1C1BCD384800937CC1 /* libgeos_c.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD586A181BCD383D00937CC1 /* libgeos_c.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		CD586A1D1BCD384900937CC1 /* libgeos.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD586A191BCD383D00937CC1 /* libgeos.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CD9381B21BC5528900A8D32B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9381B11BC5528900A8D32B /* Pods.framework */; };
 		CDB7EC051B287CE70055835C /* MapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB7EC041B287CE70055835C /* MapKitTests.swift */; };
 		CDCA5D361BB1660700BEBA9B /* MapboxGLAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */; settings = {ASSET_TAGS = (); }; };
@@ -63,8 +64,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CD23AF1C1BC5463B0059534A /* libgeos_c.1.dylib in CopyFiles */,
-				CD23AF1D1BC5463B0059534A /* libgeos-3.4.2.dylib in CopyFiles */,
+				CD586A1C1BCD384800937CC1 /* libgeos_c.dylib in CopyFiles */,
+				CD586A1D1BCD384900937CC1 /* libgeos.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +88,8 @@
 		CD25D72E1B2732FE008B3FB3 /* SpatialAnalysis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialAnalysis.swift; sourceTree = "<group>"; };
 		CD25D73D1B27364E008B3FB3 /* GEOSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GEOSwift.h; path = GEOSwift/GEOSwift.h; sourceTree = SOURCE_ROOT; };
 		CD38328B1B2EF8E200178DD2 /* geos_c.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = geos_c.h; path = ../geos/include/geos_c.h; sourceTree = "<group>"; };
+		CD586A181BCD383D00937CC1 /* libgeos_c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgeos_c.dylib; path = geos/lib/libgeos_c.dylib; sourceTree = SOURCE_ROOT; };
+		CD586A191BCD383D00937CC1 /* libgeos.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgeos.dylib; path = geos/lib/libgeos.dylib; sourceTree = SOURCE_ROOT; };
 		CD669B001B10C0930091750F /* GEOSPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GEOSPlayground.playground; sourceTree = "<group>"; };
 		CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapboxGLAnnotations.swift; sourceTree = "<group>"; };
 		CD9381B11BC5528900A8D32B /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
@@ -99,8 +102,6 @@
 		CDB71B3B1B16210C0044B3DD /* multipolygon.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multipolygon.geojson; sourceTree = "<group>"; };
 		CDB71B3D1B16459A0044B3DD /* multipoint.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multipoint.geojson; sourceTree = "<group>"; };
 		CDB7EC041B287CE70055835C /* MapKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitTests.swift; sourceTree = "<group>"; };
-		CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgeos_c.1.dylib; path = geos/lib/libgeos_c.1.dylib; sourceTree = SOURCE_ROOT; };
-		CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libgeos-3.4.2.dylib"; path = "geos/lib/libgeos-3.4.2.dylib"; sourceTree = SOURCE_ROOT; };
 		E7F9B93CA18B1E6CB06D33D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,8 +118,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD586A1A1BCD383D00937CC1 /* libgeos_c.dylib in Frameworks */,
+				CD586A1B1BCD383D00937CC1 /* libgeos.dylib in Frameworks */,
 				CD9381B21BC5528900A8D32B /* Pods.framework in Frameworks */,
-				CD23AF1E1BC5463F0059534A /* libgeos_c.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				CD38328B1B2EF8E200178DD2 /* geos_c.h */,
-				CDBC6F281B2EE19C00E0FE8F /* libgeos_c.1.dylib */,
-				CDBC6F291B2EE19C00E0FE8F /* libgeos-3.4.2.dylib */,
+				CD586A181BCD383D00937CC1 /* libgeos_c.dylib */,
+				CD586A191BCD383D00937CC1 /* libgeos.dylib */,
 			);
 			name = GEOS;
 			path = GEOSwiftTests;
@@ -507,7 +509,6 @@
 				INFOPLIST_FILE = GEOSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/geos/lib",
@@ -544,7 +545,6 @@
 				INFOPLIST_FILE = GEOSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/geos/lib",

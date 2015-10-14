@@ -146,19 +146,7 @@ typedef void (*GEOSQueryCallback)(void *item, void *userdata);
  *
  ***********************************************************************/
 
-#if defined(_MSC_VER) || defined(__CYGWIN__) || defined(__MINGW32__) || \
-defined( __BCPLUSPLUS__)  || defined( __MWERKS__)
-    
-#  if defined(GEOS_DLL_EXPORT)
-#    define GEOS_DLL   __declspec(dllexport)
-#  elif defined(GEOS_DLL_IMPORT)
-#    define GEOS_DLL   __declspec(dllimport)
-#  else
-#    define GEOS_DLL
-#  endif
-#else
-#  define GEOS_DLL
-#endif
+#define GEOS_DLL
 
 extern void GEOS_DLL initGEOS(GEOSMessageHandler notice_function,
 	GEOSMessageHandler error_function);
