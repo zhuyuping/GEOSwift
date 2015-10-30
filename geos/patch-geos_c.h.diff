@@ -1,4 +1,4 @@
 149c149
-< #define GEOS_DLL
+< #include <geos/export.h>
 ---
-> #include <geos/export.h>
+> #define GEOS_DLL
