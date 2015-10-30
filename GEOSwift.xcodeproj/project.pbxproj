@@ -28,13 +28,14 @@
 		CD2DE3A41B39750200E7BCD4 /* linestring.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFC1B3968B00092C6C6 /* linestring.geojson */; };
 		CD2DE3A51B39750200E7BCD4 /* multilinestring.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFD1B3968B00092C6C6 /* multilinestring.geojson */; };
 		CD2DE3A61B39750200E7BCD4 /* point.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFE1B3968B00092C6C6 /* point.geojson */; };
-		CD586A1A1BCD383D00937CC1 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD586A181BCD383D00937CC1 /* libgeos_c.dylib */; settings = {ASSET_TAGS = (); }; };
-		CD586A1B1BCD383D00937CC1 /* libgeos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD586A191BCD383D00937CC1 /* libgeos.dylib */; settings = {ASSET_TAGS = (); }; };
+		CD586A1A1BCD383D00937CC1 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD586A181BCD383D00937CC1 /* libgeos_c.dylib */; };
+		CD586A1B1BCD383D00937CC1 /* libgeos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD586A191BCD383D00937CC1 /* libgeos.dylib */; };
 		CD586A1C1BCD384800937CC1 /* libgeos_c.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD586A181BCD383D00937CC1 /* libgeos_c.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CD586A1D1BCD384900937CC1 /* libgeos.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD586A191BCD383D00937CC1 /* libgeos.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CD9381B21BC5528900A8D32B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9381B11BC5528900A8D32B /* Pods.framework */; };
 		CDB7EC051B287CE70055835C /* MapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB7EC041B287CE70055835C /* MapKitTests.swift */; };
-		CDCA5D361BB1660700BEBA9B /* MapboxGLAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */; settings = {ASSET_TAGS = (); }; };
+		CDCA5D361BB1660700BEBA9B /* MapboxGLAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81DB6C1B91C13D0085F772 /* MapboxGLAnnotations.swift */; };
+		EBF6B3B3B850980E3E5E4B64 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9226C17A6930F8EC39685648 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		0AB5E088F2E6436C39315D20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9226C17A6930F8EC39685648 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0C44321B20368600E7B24E /* polygon.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = polygon.geojson; sourceTree = "<group>"; };
 		CD20F1DE1B283F580045D8FD /* SpatialRelations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpatialRelations.swift; sourceTree = "<group>"; };
 		CD20F1E01B2844210045D8FD /* Geometries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometries.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD22998F1B10B506002C19AE /* GEOSwift.framework in Frameworks */,
+				EBF6B3B3B850980E3E5E4B64 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9381B11BC5528900A8D32B /* Pods.framework */,
+				9226C17A6930F8EC39685648 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
