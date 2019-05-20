@@ -419,4 +419,22 @@ class GEOSwiftTests: XCTestCase {
         result = polygon.isGeometryEmpty()
         XCTAssertFalse(result!)
     }
+    
+    func testMiniCircleBoundingCentra() {
+        let coordinates = [Coordinate(x: 0, y: 0), Coordinate(x: 2, y: 0), Coordinate(x: 2, y: 2), Coordinate(x: 0, y: 2)]
+        let polygon = Polygon(WKT: "POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))")
+
+        let circle = MinimumBoundingCircle(input: polygon!, coordinates: coordinates)
+        let centra = circle.getCentre()
+        print(centra)
+        XCTAssertTrue(centra?.x == 1)
+    }
+    
+    func testCEOSTriangleCircumcentre() {
+        let triangle = CEOSTriangle(p0: Coordinate(x: 0, y: 0), p1: Coordinate(x: 2, y: 0), p2: Coordinate(x: 0, y: 2))
+        let centre = triangle.circumcentre()
+        print(centre)
+        XCTAssertTrue(centre.x == 1)
+        XCTAssertTrue(centre.y == 1)
+    }
 }

@@ -229,10 +229,10 @@ internal class GEOSAngle {
     
 }
 
-internal class CEOSTriangle {
+public class CEOSTriangle {
     
     var p0: Coordinate?, p1: Coordinate?, p2: Coordinate?
-    convenience init(p0: Coordinate, p1: Coordinate, p2: Coordinate) {
+    public convenience init(p0: Coordinate, p1: Coordinate, p2: Coordinate) {
         self.init()
         self.p0 = p0
         self.p1 = p1
@@ -248,7 +248,7 @@ internal class CEOSTriangle {
         let by = p1!.y - cy;
         
         let denom = 2 * det(m00: ax, m01: ay, m10: bx, m11: by)
-        let numx = det(m00: ay, m01: ax * ax + ay * ay, m10: bx, m11: bx * bx + by * by)
+        let numx = det(m00: ay, m01: ax * ax + ay * ay, m10: by, m11: bx * bx + by * by)
         let numy = det(m00: ax, m01: ax * ax + ay * ay, m10: bx, m11: bx * bx + by * by)
         
         let ccx = cx - numx / denom;
