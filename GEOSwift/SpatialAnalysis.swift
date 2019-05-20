@@ -126,4 +126,20 @@ public extension Geometry {
         guard GEOSArea_r(GEOS_HANDLE, storage.GEOSGeom, &area) == 1 else { return nil }
         return area
     }
+    
+    /// - judge the Geometry empty
+    
+    func isGeometryEmpty() -> Bool {
+        let result =  GEOSisEmpty_r(GEOS_HANDLE, self.storage.GEOSGeom)
+        assert(result != 2, "GEOSisEmpty_r on exception")
+        return result == 1
+    }
+    
+    /// - get coordinates
+    
+    func getNumCoordinates() -> Int {
+        let coos = GEOSGetNumCoordinates_r(GEOS_HANDLE, self.storage.GEOSGeom)
+        return Int(coos)
+    }
+    
 }

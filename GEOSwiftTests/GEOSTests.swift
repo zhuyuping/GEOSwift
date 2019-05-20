@@ -399,4 +399,24 @@ class GEOSwiftTests: XCTestCase {
         XCTAssertEqual(collection.index(after: 1), 2)
         XCTAssertEqual(collection.index(after: 2), 3)
     }
+    
+    func testCoordinateDistance() {
+        let coordinateA = Coordinate(x: 0, y: 3)
+        let coordinateB = Coordinate(x: 4, y: 0)
+        let distance = coordinateA.distance(to: coordinateB)
+        XCTAssertTrue(distance == 5.0)
+    }
+    
+    func testGetNumPoints() {
+        let number = polygon?.getNumCoordinates()
+        XCTAssertTrue(number == 9)
+    }
+    
+    func testEmptyPolygon() {
+        let emptyPolygon = Polygon.init()
+        var result = emptyPolygon?.isGeometryEmpty()
+        XCTAssertTrue(result!)
+        result = polygon.isGeometryEmpty()
+        XCTAssertFalse(result!)
+    }
 }

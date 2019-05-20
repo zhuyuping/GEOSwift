@@ -102,6 +102,11 @@ extension Coordinate {
     public init(_ coord: CLLocationCoordinate2D) {
         self.init(x: coord.longitude, y: coord.latitude)
     }
+    
+    public func distance(to coordinate: Coordinate) -> Double {
+        let sum = (self.y - coordinate.y)*(self.y - coordinate.y) + (self.x - coordinate.x)*(self.x - coordinate.x)
+        return sqrt(sum)
+    }
 }
 
 // MARK: - Deprecated

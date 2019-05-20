@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26FDCA2F228E970400A5A228 /* MinimumBoundingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDCA2E228E970400A5A228 /* MinimumBoundingCircle.swift */; };
+		26FDCA31228EB23600A5A228 /* Geometry+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDCA30228EB23600A5A228 /* Geometry+Extension.swift */; };
 		490B96CA2251A61200327D64 /* geometrycollection.png in Resources */ = {isa = PBXBuildFile; fileRef = 490B96C82251A61200327D64 /* geometrycollection.png */; };
 		490B96CB2251A61200327D64 /* waypoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 490B96C92251A61200327D64 /* waypoint.png */; };
 		49436EC2226BF51500F8F99E /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49436EC1226BF51500F8F99E /* geos.framework */; };
@@ -69,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		26FDCA2E228E970400A5A228 /* MinimumBoundingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumBoundingCircle.swift; sourceTree = "<group>"; };
+		26FDCA30228EB23600A5A228 /* Geometry+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geometry+Extension.swift"; sourceTree = "<group>"; };
 		490B96C82251A61200327D64 /* geometrycollection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geometrycollection.png; sourceTree = "<group>"; };
 		490B96C92251A61200327D64 /* waypoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waypoint.png; sourceTree = "<group>"; };
 		49436EC1226BF51500F8F99E /* geos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = geos.framework; path = Carthage/Build/iOS/geos.framework; sourceTree = "<group>"; };
@@ -169,8 +173,10 @@
 				4993ABEA20F4F1CF0066547D /* MiscFunctions.swift */,
 				CD25D72D1B2732FE008B3FB3 /* QuickLook.swift */,
 				CD25D72E1B2732FE008B3FB3 /* SpatialAnalysis.swift */,
+				26FDCA2E228E970400A5A228 /* MinimumBoundingCircle.swift */,
 				CD20F1DE1B283F580045D8FD /* SpatialRelations.swift */,
 				CD2299861B10B506002C19AE /* Supporting Files */,
+				26FDCA30228EB23600A5A228 /* Geometry+Extension.swift */,
 			);
 			path = GEOSwift;
 			sourceTree = "<group>";
@@ -371,7 +377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint autocorrect\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint autocorrect\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		E2836B6C226F339E0081B1F6 /* Copy geos for Playground */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -399,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD25D72F1B2732FE008B3FB3 /* GeoJSON.swift in Sources */,
+				26FDCA2F228E970400A5A228 /* MinimumBoundingCircle.swift in Sources */,
 				CD20F1DF1B283F580045D8FD /* SpatialRelations.swift in Sources */,
 				CD25D7361B2732FE008B3FB3 /* MapKit.swift in Sources */,
 				CD25D7381B2732FE008B3FB3 /* SpatialAnalysis.swift in Sources */,
@@ -408,6 +415,7 @@
 				CD25D7301B2732FE008B3FB3 /* GEOS.swift in Sources */,
 				CD20F1E11B2844210045D8FD /* Geometries.swift in Sources */,
 				4993ABEC20F4F1CF0066547D /* MiscFunctions.swift in Sources */,
+				26FDCA31228EB23600A5A228 /* Geometry+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

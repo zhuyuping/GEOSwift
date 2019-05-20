@@ -15,4 +15,5 @@ public extension Geometry {
         assert(result == 1)
         return dist
     }
+    
 }

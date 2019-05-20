@@ -102,6 +102,13 @@ open class Polygon: Geometry {
         }
         self.init(storage: GeometryStorage(GEOSGeom: geometry, parent: nil))
     }
+    
+    public convenience init?() {
+        guard let geometry = GEOSGeom_createEmptyPolygon_r(GEOS_HANDLE) else {
+            return nil
+        }
+        self.init(storage: GeometryStorage(GEOSGeom: geometry, parent: nil))
+    }
 }
 
 /**
