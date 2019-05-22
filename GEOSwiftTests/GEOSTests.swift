@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 import GEOSwift
+import MapKit
 
 // swiftlint:disable:next type_body_length
 class GEOSwiftTests: XCTestCase {
@@ -421,18 +422,30 @@ class GEOSwiftTests: XCTestCase {
     }
     
     func testMiniCircleBoundingCentra() {
-        let coordinates = [Coordinate(x: 0, y: 0), Coordinate(x: 2, y: 0), Coordinate(x: 2, y: 2), Coordinate(x: 0, y: 2)]
-        let polygon = Polygon(WKT: "POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))")
-
+//        let coordinates = [Coordinate(x: -10, y: 0), Coordinate(x: 20, y: 10), Coordinate(x: 40, y: 10), Coordinate(x: 20, y: 20), Coordinate(x: 10, y: 50), Coordinate(x: 10, y: 20), Coordinate(x: -10, y: 0)]
+//        let polygon = Polygon(WKT: "POLYGON((-10 0, 20 10, 40 0, 20 20, 10 50, 10 20, -10 0))")
+//        let circle = MinimumBoundingCircle(input: polygon!, coordinates: coordinates)
+//        let centra = circle.getCentre()
+//        let radius = circle.getRadius()
+        
+        let coordinates = [Coordinate(x: 218782742.1021259, y: 116444976.3434027), Coordinate(x: 218782752.9764611, y: 116444993.9825511), Coordinate(x: 218782763.7050657, y: 116444983.9989838), Coordinate(x: 218782762.363992, y: 116444958.2205207), Coordinate(x: 218782748.9532325, y: 116444953.6012583), Coordinate(x: 218782730.0291518, y: 116444966.2669772), Coordinate(x: 218782731.0722174, y: 116444984.1479929), Coordinate(x: 218782738.6716475, y: 116444991.1513906), Coordinate(x: 218782748.5062055, y: 116444994.2805683), Coordinate(x: 218782742.1021259, y: 116444976.3434027)]
+        let polygon = Polygon(WKT: "POLYGON ((218782742.1021259 116444976.3434027, 218782752.9764611 116444993.9825511, 218782763.7050657 116444983.9989838, 218782762.363992 116444958.2205207, 218782748.9532325 116444953.6012583, 218782730.0291518 116444966.2669772, 218782731.0722174 116444984.1479929, 218782738.6716475 116444991.1513906, 218782748.5062055 116444994.2805683, 218782742.1021259 116444976.3434027))")
         let circle = MinimumBoundingCircle(input: polygon!, coordinates: coordinates)
         let centra = circle.getCentre()
-        print(centra)
-        XCTAssertTrue(centra?.x == 1)
+        let radius = circle.getRadius()
+        let expts = circle.getExtremalPoints()
+        
+        
+        let c1 = MKMapPoint(x: centra!.x, y: centra!.y).coordinate
+        let c2 = MKMapPoint(x: 218782748.88070023, y: 116444973.79428576).coordinate
+        
+        // 2.823497719039155
+        let ra = MKMapPoint(x: expts[0].x, y: expts[0].y).distance(to: MKMapPoint(x: centra!.x, y: centra!.y))
+        print(radius)
     }
     
     func testCEOSTriangleCircumcentre() {
-        let triangle = CEOSTriangle(p0: Coordinate(x: 0, y: 0), p1: Coordinate(x: 2, y: 0), p2: Coordinate(x: 0, y: 2))
-        let centre = triangle.circumcentre()
+        let centre = CEOSTriangle.circumcentre(p0: Coordinate(x: 0, y: 0), p1: Coordinate(x: 2, y: 0), p2: Coordinate(x: 0, y: 2))
         print(centre)
         XCTAssertTrue(centre.x == 1)
         XCTAssertTrue(centre.y == 1)

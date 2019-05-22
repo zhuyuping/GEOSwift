@@ -28,8 +28,21 @@ public class MinimumBoundingCircle {
     }
     
     public func getRadius() -> Double? {
+        compute()
         if radius == 0 { return nil }
         return radius
+    }
+    
+    public func getRadius_mater() -> CLLocationDistance? {
+        compute()
+        if extremalPts!.count <= 1 { return nil }
+        let distance = MKMapPoint(x: centre!.x, y: centre!.y).distance(to: MKMapPoint(x: extremalPts![0].x, y: extremalPts![0].y))
+        return distance
+    }
+    
+    public func  getExtremalPoints() -> [Coordinate] {
+        compute()
+        return extremalPts!
     }
     
     private func compute() {
@@ -59,28 +72,24 @@ public class MinimumBoundingCircle {
         let polygon = input?.convexHull()
         let ring = polygon?.exteriorRing
         let pointCollection = ring?.points
-        var mapPoints = pointCollection?.map({ (coordinate) -> MKMapPoint in
-             MKMapPoint(x: coordinate.x, y: coordinate.y)
+        var pts = pointCollection?.map({ (coordinate) -> Coordinate in
+             Coordinate(x: coordinate.x, y: coordinate.y)
         })
-        mapPoints?.removeLast()
+        
+        if pts?.first?.x == pts?.last?.x, pts?.first?.y == pts?.last?.y {
+            pts?.removeLast()
+        }
 
-        if mapPoints!.count <= 2 {
-            let coordinates = mapPoints?.compactMap({ (mapPoint) -> Coordinate in
-                Coordinate(x: mapPoint.x, y: mapPoint.y)
-            })
-            extremalPts = coordinates
+        if pts!.count <= 2 {
+            extremalPts = pts!
             return
         }
         
-        let coordinates = mapPoints?.map({ (mapPoint) -> Coordinate in
-            Coordinate(x: mapPoint.x, y: mapPoint.y)
-        })
-        
         // find a point P with minimum Y ordinate
-        var P = lowestPoint(pts: coordinates!)
+        var P = lowestPoint(pts: pts!)
         
         // find a point Q such that the angle that PQ makes with the x-axis is minimal
-        var Q = pointWitMinAngleWithX(pts: coordinates!, P: P)
+        var Q = pointWitMinAngleWithX(pts: pts!, P: P)
         
         /**
          * Iterate over the remaining points to find
@@ -89,8 +98,8 @@ public class MinimumBoundingCircle {
          * at most <tt>pts.length</tt> iterations are required to terminate
          * with a correct result.
          */
-        for _ in coordinates! {
-            let R = pointWithMinAngleWithSegment(pts: coordinates!, P: P, Q: Q)
+        for _ in pts! {
+            let R = pointWithMinAngleWithSegment(pts: pts!, P: P, Q: Q)
             // if PRQ is obtuse, then MBC is determined by P and Q
             if GEOSAngle.isObtuse(p0: P, p1: R, p2: Q) {
                 extremalPts = [P, Q]
@@ -124,7 +133,7 @@ public class MinimumBoundingCircle {
             centre = Coordinate(x: (extremalPts![0].x + extremalPts![1].x) / 2.0, y: (extremalPts![0].y + extremalPts![1].y) / 2.0)
             break
         case 3:
-            centre = CEOSTriangle(p0: extremalPts![0], p1: extremalPts![1], p2: extremalPts![2]).circumcentre()
+            centre = CEOSTriangle.circumcentre(p0: extremalPts![0], p1: extremalPts![1], p2: extremalPts![2])
             break
         default:
             break
@@ -144,8 +153,7 @@ public class MinimumBoundingCircle {
     private func pointWitMinAngleWithX(pts: [Coordinate], P: Coordinate) -> Coordinate{
         var minSin = Double.greatestFiniteMagnitude
         var minAngPt: Coordinate?
-        for i in (0...pts.count-1) {
-            let p = pts[i]
+        for p in pts {
             if p == P { continue }
             
             /**
@@ -168,8 +176,7 @@ public class MinimumBoundingCircle {
     private func pointWithMinAngleWithSegment(pts: [Coordinate], P: Coordinate, Q: Coordinate) -> Coordinate{
         var minAng = Double.greatestFiniteMagnitude
         var minAngPt: Coordinate?
-        for i in (0...pts.count-1) {
-            let p = pts[i]
+        for p in pts {
             if p == P { continue }
             if p == Q { continue }
             
@@ -188,8 +195,6 @@ public class MinimumBoundingCircle {
 let GEOS_PI = 3.14159265358979323846
 
 internal class GEOSAngle {
-    
-    let pai = 3.14159265358979323846
     
     public static func angle(p0: Coordinate, p1: Coordinate) -> Double{
         let dx = p1.x - p0.x
@@ -231,21 +236,13 @@ internal class GEOSAngle {
 
 public class CEOSTriangle {
     
-    var p0: Coordinate?, p1: Coordinate?, p2: Coordinate?
-    public convenience init(p0: Coordinate, p1: Coordinate, p2: Coordinate) {
-        self.init()
-        self.p0 = p0
-        self.p1 = p1
-        self.p2 = p2
-    }
-    
-    public func circumcentre() -> Coordinate {
-        let cx = p2!.x;
-        let cy = p2!.y;
-        let ax = p0!.x - cx;
-        let ay = p0!.y - cy;
-        let bx = p1!.x - cx;
-        let by = p1!.y - cy;
+    public static func circumcentre(p0: Coordinate, p1: Coordinate, p2: Coordinate) -> Coordinate {
+        let cx = p2.x;
+        let cy = p2.y;
+        let ax = p0.x - cx;
+        let ay = p0.y - cy;
+        let bx = p1.x - cx;
+        let by = p1.y - cy;
         
         let denom = 2 * det(m00: ax, m01: ay, m10: bx, m11: by)
         let numx = det(m00: ay, m01: ax * ax + ay * ay, m10: by, m11: bx * bx + by * by)
@@ -256,7 +253,7 @@ public class CEOSTriangle {
         return Coordinate(x: ccx, y: ccy)
     }
     
-    public func det(m00: Double ,m01: Double ,m10: Double ,m11: Double) -> Double {
+    public static func det(m00: Double ,m01: Double ,m10: Double ,m11: Double) -> Double {
         return m00 * m11 - m01 * m10
     }
 }
