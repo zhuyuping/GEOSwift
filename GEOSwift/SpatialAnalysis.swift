@@ -142,4 +142,11 @@ public extension Geometry {
         return Int(coos)
     }
     
+    /// - judge the Geometry sample
+    
+    func isSimple() -> Bool {
+        let result =  GEOSisSimple_r(GEOS_HANDLE, self.storage.GEOSGeom)
+        assert(result != 2, "GEOSisEmpty_r on exception")
+        return result == 1
+    }
 }
