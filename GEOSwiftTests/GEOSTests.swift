@@ -434,10 +434,9 @@ class GEOSwiftTests: XCTestCase {
     }
     
     func testSimpleGeosmetry() {
-        let polygonWKT = "POLYGON((35 10, 45 45, 15 40, 10 20, 35 10),(20 30, 35 35, 30 20, 20 30))"
-        let polygon = Geometry.create(polygonWKT) as! GEOSwift.Polygon
+        let polygonWKT = "POLYGON((0 0, 10 10, 10 0, 0 10, 0 0))"
+        let polygon = Polygon(WKT: polygonWKT)!
         let result = polygon.isSimple()
         XCTAssertTrue(result)
-        
     }
 }
