@@ -143,10 +143,17 @@ public extension Geometry {
     }
     
     /// - judge the Geometry sample
-    
+    /// Polygon use isValid as isSimple
     func isSimple() -> Bool {
         let result =  GEOSisSimple_r(GEOS_HANDLE, self.storage.GEOSGeom)
-        assert(result != 2, "GEOSisEmpty_r on exception")
+        assert(result != 2, "GEOSisSimple_r on exception")
+        return result == 1
+    }
+    
+    /// - judge the Geometry valid
+    func isValid() -> Bool {
+        let result =  GEOSisValid_r(GEOS_HANDLE, self.storage.GEOSGeom)
+        assert(result != 2, "GEOSisValid_r on exception")
         return result == 1
     }
 }
